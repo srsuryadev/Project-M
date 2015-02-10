@@ -1,3 +1,5 @@
+package SongClassifier;
+
 import java.io.IOException;
 import java.util.Iterator;
 import org.apache.hadoop.io.DoubleWritable;
@@ -7,23 +9,20 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reducer;
 import org.apache.hadoop.mapred.Reporter;
 
-public class TestReducer extends MapReduceBase implements Reducer<Text,DoubleWritable,Text,DoubleWritable>{
+public class TestReducer extends MapReduceBase implements Reducer<Text,String,Text,Text>{
 
 	@Override
-	public void reduce(Text key, Iterator<DoubleWritable> values,
-			OutputCollector<Text, DoubleWritable> output, Reporter reporter)
+        
+	public void reduce(Text key, Iterator<String> values,
+			OutputCollector<Text, Text> output, Reporter reporter)
 			throws IOException {
 		
-			double minValue=Double.MAX_VALUE;
-			while(values.hasNext()){
-				if(values.next().get()!=0){
-					minValue=Math.min(minValue,values.next().get());
-				}
-				
-			}
+                        
+                        while(values.hasNext()){
+                            output.collect(new Text(values.next()), new Text(key));
+                        }
 			
-			output.collect(key, new DoubleWritable(minValue));
-		
+			
 	}
 
 		
