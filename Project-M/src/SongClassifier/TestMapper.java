@@ -50,11 +50,11 @@ implements Mapper<LongWritable, Text, Text, Text> {
                 SongClass actualSong=new SongClass();
                 
 	//	actualSong.artistFamilarity=Double.parseDouble(words[3]);
-		actualSong.danceAbility=Double.parseDouble(words[4]);
-		actualSong.energy=Double.parseDouble(words[5]);
-                actualSong.liveness=Double.parseDouble(words[6]);
-		actualSong.loudness=Double.parseDouble(words[7]);
-                actualSong.mode=Double.parseDouble(words[8]);
+		actualSong.danceAbility=Double.parseDouble(words[3]);
+		actualSong.energy=Double.parseDouble(words[4]);
+                actualSong.liveness=Double.parseDouble(words[5]);
+		actualSong.loudness=Double.parseDouble(words[6]);
+                actualSong.mode=Double.parseDouble(words[7]);
                 
 		
                 
