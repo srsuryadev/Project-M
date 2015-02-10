@@ -29,6 +29,15 @@ public class TestDriver {
 		conf.setOutputKeyClass(Text.class);
 		conf.setOutputValueClass(DoubleWritable.class);
 		JobClient.runJob(conf);
+                JobConf conf1 = new JobConf(TestDriver.class);
+		conf1.setJobName("Recommender2");
+		FileInputFormat.addInputPath(conf1, new Path(args[2]));
+		FileOutputFormat.setOutputPath(conf1, new Path(args[3]));
+		conf1.setMapperClass(UserSongMapper.class);
+		conf1.setReducerClass(UserSongReducer.class);
+		conf1.setOutputKeyClass(Text.class);
+		conf1.setOutputValueClass(Text.class);
+		JobClient.runJob(conf1);
                 
 		
 	}
