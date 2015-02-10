@@ -1,8 +1,9 @@
-package SongClassifier;
+package Driver;
 
 
 import java.io.IOException;
-
+import SongClassifier.*;
+import DataModifier.*;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
